@@ -93,7 +93,7 @@ const Highlights = () => {
               <span className={`highlight__difference-amount highlight__difference-amount--${item.increase ? "increase" : "decrease"}`}>
                 {item.difference}
               </span>
-              <span className="highlight__difference-day">{item.date}</span>
+              <span className="highlight__difference-day">{item.date.charAt(0).toUpperCase() + item.date.slice(1)}</span>
               <span className="sr-only">{changeText}</span>
             </div>
           </article>
