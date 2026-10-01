@@ -14,18 +14,18 @@ const ThemeSwitch = () => {
 
   return (
     <div className="theme">
-      <label htmlFor="theme-switch" className="theme__label">
-        Dark Mode
+      <span className="theme__label">Dark Mode</span>
+      <label htmlFor="theme-switch" className="theme__switch">
+        <input
+          type="checkbox"
+          id="theme-switch"
+          className="theme__toggle"
+          role="switch"
+          aria-checked={isDarkMode}
+          checked={isDarkMode}
+          onChange={handleThemeSwitch}
+        />
       </label>
-      <input
-        type="checkbox"
-        id="theme-switch"
-        className="theme__toggle"
-        role="switch"
-        aria-checked={isDarkMode}
-        checked={isDarkMode}
-        onChange={handleThemeSwitch}
-      />
     </div>
   );
 };
