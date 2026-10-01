@@ -90,7 +90,7 @@ const Highlights = () => {
                 aria-hidden="true"
                 className="highlight__difference-direction"
               />
-              <span className="highlight__difference-amount">
+              <span className={`highlight__difference-amount highlight__difference-amount--${item.increase ? "increase" : "decrease"}`}>
                 {item.difference}
               </span>
               <span className="highlight__difference-day">{item.date}</span>

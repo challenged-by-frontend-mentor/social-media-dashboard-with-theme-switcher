@@ -102,7 +102,7 @@ const Overview = () => {
                 aria-hidden="true"
                 className="overview__direction-icon"
               />
-              <span className="overview__difference-amount">
+              <span className={`overview__difference-amount overview__difference-amount--${item.increase ? "increase" : "decrease"}`}>
                 {item.differencePercent}%
               </span>
               <span className="sr-only">
