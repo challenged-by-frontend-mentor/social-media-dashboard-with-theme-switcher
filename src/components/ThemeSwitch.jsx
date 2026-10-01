@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const ThemeSwitch = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const handleThemeSwitch = () => {
     const nextState = !isDarkMode;
