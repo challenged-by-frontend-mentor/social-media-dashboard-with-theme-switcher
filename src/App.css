@@ -195,6 +195,11 @@ body {
   background: var(--clr-toggle-bg-hover);
 }
 
+.theme__switch:has(.theme__toggle:focus-visible) {
+  outline: 2px solid var(--clr-main-text);
+  outline-offset: 2px;
+}
+
 .highlight {
   --flex-direction: column;
   --gap: 1.5rem;
@@ -333,7 +338,7 @@ body {
   width: 100%;
   height: 124px;
   grid-template-columns: 1fr 1fr;
-  grid-row: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   padding-left: 1.58rem;
   padding-right: 1.95rem;
   padding-top: 1.1rem;
@@ -399,9 +404,14 @@ body {
   font-weight: var(--fw-bold);
 }
 
-.footer__link:hover,
-.footer__link:focus-visible {
+.footer__link:hover {
   text-decoration: underline;
+}
+
+.footer__link:focus-visible {
+  outline: 2px solid var(--clr-main-text);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 @media (min-width: 1024px) {
@@ -412,7 +422,7 @@ body {
 
   .main-content {
     --max-width: 100%;
-    --padding-left-right: 11.3vw;
+    --padding-left-right: clamp(30.72px, calc(-294.203px + 31.731vw), 162.72px);
     --gap: 2.7rem;
 
     margin-bottom: auto;
