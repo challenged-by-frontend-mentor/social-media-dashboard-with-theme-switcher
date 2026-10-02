@@ -37,22 +37,27 @@ Users should be able to:
   <summary>Mobile view</summary>
   <img src='screenshots/mobile-view-light.png' alt='Social media dashboard with theme switcher challenge - Mobile view' width='375px'>
 </details>
+
 <details>
   <summary>Mobile view</summary>
   <img src='screenshots/mobile-view-dark.png' alt='Social media dashboard with theme switcher challenge - Mobile view' width='375px'>
 </details>
+
 <details>
   <summary>Desktop view</summary>
   <img src='screenshots/desktop-view-light.png' alt='Social media dashboard with theme switch challenge - Desktop view'>
 </details>
+
 <details>
   <summary>Desktop view</summary>
   <img src='screenshots/desktop-view-dark.png' alt='Social media dashboard with theme switch challenge - Desktop view'>
 </details>
+
 <details>
   <summary>Active state view</summary>
   <img src='screenshots/active-state-view-light.png' alt='Social media dashboard with theme switch challenge - Active state view'>
 </details>
+
 <details>
   <summary>Active state view</summary>
   <img src='screenshots/active-state-view-dark.png' alt='Social media dashboard with theme switch challenge - Active state view'>
@@ -60,81 +65,89 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Social Media Dashboard – React, Vite, BEM & Custom HSL Theme Switcher](https://www.frontendmentor.io/solutions/social-media-dashboard-react-vite-bem-and-custom-hsl-theme-switcher-BgA8FtBmXC)
+- Live Site URL: [Frontend Mentor | Social Media Dashboard With Theme Switcher](https://challenged-by-frontend-mentor.github.io/social-media-dashboard-with-theme-switcher/)
 
 ## My process
 
 ### Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
+- CSS Custom Properties (Variables)
+- CSS Flexbox & CSS Grid
 - Mobile-first workflow
+- Responsive typography and padding (using `clamp()` and `dvh`)
+- [BEM Methodology](https://www.google.com/search?q=https://en.bem.info/methodology/) - CSS class naming convention
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- [Vite](https://vitejs.dev/) - Frontend Tooling
+- Accessibility (a11y) best practices - Keyboard navigation and focus states
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+Throughout this project, I deepened my knowledge in both CSS architectural techniques and JavaScript data formatting:
 
-To see how you can add code snippets, see below:
+1. **Relative Color Syntax (`hsl(from ...)`):**
+   Learned how to derive hover states directly from CSS custom properties using relative color syntax, allowing seamless light/dark mode variations without duplicating color variables.
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
+   ```css
+   .highlight__card:hover {
+     background-color: hsl(from var(--clr-card-bg) h s var(--clr-card-bg-hover-light));
+   }
+   ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+2. **Accessible Outline Offset** (`outline-offset`):
+   Utilized `outline-offset` alongside `:focus-visible` to create visually distinct focus indicators with a clean gap between the element boundary and outline.
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+3. **Number Formatting with** `toLocaleString()`:
+   Leveraged JavaScript's `Number.prototype.toLocaleString()` to automatically format raw follower and engagement numbers into localized string representations with thousand separators (e.g., `10480` $\rightarrow$ `10,480`).
+
+4. **Custom Accessible Toggle Switch**:
+   Constructed a pure CSS toggle switch overlaying a hidden `<input type="checkbox">` element, ensuring accessible keyboard focus via `:has(:focus-visible)` while maintaining full visual customization.
+
+5. **Theme Management with** `data-theme`:
+   Implemented theme switching logic using a `data-theme` attribute attached to the root document, allowing global color variable swapping across light and dark modes effortlessly.
+
+6. **Gradient Borders**:
+   Explored techniques for multi-color gradient top borders (such as Instagram's brand gradient) using pseudo-elements (`::before`) and absolute positioning.
+
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+For future iterations or similar dashboard projects, I plan to expand upon the following areas:
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+- **Live Social Media API Integration**: Connect the dashboard components to live third-party APIs (e.g., YouTube Data API, Meta Graph API) or real-time mock web sockets to fetch dynamic engagement statistics dynamically.
+
+- **Enhanced Keyboard Navigation & ARIA Live Regions**: Add live region announcements (`aria-live`) when toggling themes or updating data to improve screen reader accessibility.
+
+- **Data Visualization Charts**: Integrate lightweight charting libraries (such as Chart.js or Recharts) to render historical growth trends for each platform upon clicking individual summary cards.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [MDN - Date/Number toLocaleString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString) - Helped with formatting large numbers with thousand separators cleanly.
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [Creating a CSS-only Toggle Switch - Álvaro Montoro](https://alvaromontoro.com/blog/68017/creating-a-css-only-toggle-switch) - A great reference for creating semantic toggle switch controls without unnecessary JS libraries.
+
+- [Building Toggle Switch in React - Medium Article](https://medium.com/@divvyatripaathi/building-toggle-switch-using-react-typescript-styled-components-38b45f054ea0) - Useful guide for structural reference on custom inputs.
+
+- [CSS-Tricks - hsl() Function Reference](https://css-tricks.com/almanac/functions/h/hsl/) - Comprehensive guide on HSL color manipulation.
+
+- [MDN - border-image](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/border-image) - Documentation on border images and gradient border techniques.
+
+- [MDN - outline-offset](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/outline-offset) - Clear examples of how to apply proper spacing for focused elements.
 
 ### AI Collaboration
 
-Describe how you used AI tools (if any) during this project. This helps demonstrate your ability to work effectively with AI assistants.
-
-- What tools did you use (e.g., ChatGPT, Claude, GitHub Copilot)?
-- How did you use them (e.g., debugging, generating boilerplate, brainstorming solutions)?
-- What worked well? What didn't?
-
-**Note: Delete this note and the content above if you didn't use AI, or replace with your own experience.**
+For this project, I collaborated with **Gemini** and **Google Search AI** Mode as technical sparring partners for code reviews, accessibility refinement, CSS refactoring, and verifying modern CSS standards.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+- GitHub: [Kairung Vangmanaw](https://github.com/VangmanawKairung)
+- Frontend Mentor - [@VangmanawKairung](https://www.frontendmentor.io/profile/VangmanawKairung)
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
+I would like to express my gratitude to myself for staying consistent, as well as my family for their continuous encouragement throughout this build. Special thanks to the Frontend Mentor team for designing such high-quality, practical design challenges. 
 
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+I am also deeply appreciative of all the modern developer tools that streamlined this workflow—from generative AI assistants (Gemini) to VS Code, Google Chrome DevTools, and essential editor extensions. 
+
+Lastly, thank you to the open-web technical community for the rich documentation and tutorials. A quick mention goes to macOS Preview, which proved surprisingly handy for checking pixel distances quickly alongside my design overlays, speeding up my measurement workflow without guessing values.
